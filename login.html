@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="title"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="theme-color" content="#2484ac" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="voucher()">
+        $(if chap-id)
+        <form name="sendin" action="$(link-login-only)" method="post">
+            <input type="hidden" name="username" />
+            <input type="hidden" name="password" />
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+        </form>
+
+        <script type="text/javascript" src="md5.js"></script>
+        <script type="text/javascript">
+            function doLogin() {
+                document.sendin.username.value = document.login.username.value;
+                document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value +
+                    '$(chap-challenge)');
+                document.sendin.submit();
+                return false;
+            }
+        </script>
+        $(endif)
+
+            <div id="main" class="main">
+            
+            <div class="box">
+                <img src="Ramadan.jpeg" alt="Logo" style="width:100%; height:auto; border-radius: 15px;"/>
+                <h3 class="brand">Expert IT Solution</h3>
+                <marquee>♦ কম্পিউটার শিখে নিজের কর্মস্থান নিজেই গড়ি ♦ কম্পিউটার কোর্সে ভর্তি চলছে
+                #কোর্স শেষে গণপ্রজাতন্ত্রী বাংলাদেশ সরকার কর্তৃক অনুমোদিত সার্টিফিকেট প্রদান করা হয়। #আপনি কি কম্পিউটার শিখতে চান? আপনার কি কম্পিউটার সার্টিফিকেট প্রয়োজন?
+আধুনিক যুগে কম্পিউটার জানা না থাকলে প্রায় কোন ক্ষেত্রেই চাকরী হয় না।
+ঘর থেকে শুরু করে অফিস-আদালত এমন কোন জায়গায় খুজে পাওয়া যাবে না যেখানে কম্পিউটার ব্যবহার হয় না, আপনি যদি কম্পিউটার প্রশিক্ষণ গ্রহণ না করে থাকেন তবে আমাদের কাছে প্রশিক্ষণ নিতে পারেন।</marquee>
+            </div>
+
+            <div class="box">-
+                <!-- Display the countdown timer in an element -->
+                <p id="demo"></p>
+            </div>
+
+            <div class="box">
+                              
+                <button id="btnvrc" class="small-button" onclick="voucher();"><i class="icon icon-ticket">&#xe802;</i> Voucher</button>
+                
+            </div>
+            <div class="box" id="infologin">
+            </div>
+            <form autocomplete="off" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()"
+                $(endif)>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+                <input type="hidden" name="popup" value="true" />
+                <input class="username" name="username" type="text" value="$(username)" />
+                <input class="password" name="password" placeholder="Password" type="hidden" />
+
+                <button class="button" type="submit"><i class="icon icon-login">&#xe803;</i> Login</button>
+
+            </form>
+
+            $(if trial == 'yes')
+            <div class="box"><a style="text-decoration: underline; color:#2484ac;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">FREE Internet</a></div>
+            $(endif)
+
+            $(if error)<div class="notice">$(error)</div>$(endif)
+
+                
+
+                <table class="table">
+                    <caption style="font-size: 16px; font-weight: bold; margin-bottom:5px;">ওয়াইফাই কার্ড সমূহঃ</caption>
+                    <tr>
+                        <th>স্পিড</th>
+                        <th>মেয়াদ</th>
+                        <th>মূল্য</th>
+                    </tr>
+                    <tr>
+                        <td>আনলিমিটেড</td>
+                        <td>২ ঘণ্টা</td>
+                        <td>মাত্র ৭ টাকা</td>
+                    </tr>
+                    <tr>
+                        <td>আনলিমিটেড</td>
+                        <td>১ দিন</td>
+                        <td>মাত্র ১৫ টাকা</td>
+                    </tr>
+                    <tr>
+                        <td>আনলিমিটেড</td>
+                        <td>২ দিন</td>
+                        <td>মাত্র ২৫ টাকা</td>
+                    </tr>
+                    <tr>
+                        <td>আনলিমিটেড</td>
+                        <td>৫ দিন</td>
+                        <td>মাত্র ৫০ টাকা</td>
+                    </tr>
+                    <tr>
+                        <td>আনলিমিটেড</td>
+                        <td>৩০ দিন</td>
+                        <td>মাত্র ২৪৯ টাকা</td>
+                    </tr>
+                </table>
+                
+        </div>
+        <br />
+        <div class="box" style="color:#2484ac;">
+            <i>Copyright &copy; 2025 Expert IT Solution</i><br />
+            <i>Powered by <a style="color:#2484ac; text-decoration:underline;" href="https://github.com/unknownsojib">Sojib Islam</a></i>
+        </div>
+
+<script type="text/javascript">
+var hostname = window.location.hostname;
+document.getElementById('title').innerHTML = hostname  + " > login";
+
+document.login.username.focus();
+
+var infologin = document.getElementById('infologin');
+infologin.innerHTML = "  .";
+
+
+var username = document.login.username;
+var password = document.login.password;
+
+username.placeholder = "Voucher";
+
+// set password = username
+function setpass() {
+    var user = username.value
+    //user = user.toLowerCase();
+    username.value = user;
+    password.value = user;
+}
+
+username.onkeyup = setpass;
+
+// change to voucher mode
+function voucher() {
+    username.focus();
+    username.onkeyup = setpass;
+    username.placeholder = "Voucher";
+    username.style = "border-radius:3px;"
+    password.type = "hidden";
+    infologin.innerHTML = "";
+}
+
+</script>
+
+</body>
+
+</html>
